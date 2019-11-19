@@ -1,6 +1,6 @@
 <?php
 
-namespace Zefy\LaravelSSO\Commands;
+namespace andcarpi\LaravelSSOServer\Commands;
 
 use Illuminate\Console\Command;
 
@@ -39,7 +39,7 @@ class ListBrokers extends Command
     {
         $headers = ['ID', 'Name', 'Secret'];
 
-        $brokerClass = app(config('laravel-sso.brokersModel'));
+        $brokerClass = app(config('laravel-sso-server.brokersModel'));
         $brokers = $brokerClass::all(['id', 'name', 'secret'])->toArray();
 
         $this->table($headers, $brokers);

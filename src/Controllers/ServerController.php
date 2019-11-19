@@ -1,10 +1,10 @@
 <?php
 
-namespace Zefy\LaravelSSO\Controllers;
+namespace andcarpi\LaravelSSOServer\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
-use Zefy\LaravelSSO\LaravelSSOServer;
+use andcarpi\LaravelSSOServer\LaravelSSOServer;
 
 class ServerController extends BaseController
 {

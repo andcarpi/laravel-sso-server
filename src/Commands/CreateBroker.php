@@ -1,6 +1,6 @@
 <?php
 
-namespace Zefy\LaravelSSO\Commands;
+namespace andcarpi\LaravelSSOServer\Commands;
 
 use Illuminate\Console\Command;
 
@@ -37,7 +37,7 @@ class CreateBroker extends Command
      */
     public function handle()
     {
-        $brokerClass = app(config('laravel-sso.brokersModel'));
+        $brokerClass = app(config('laravel-sso-server.brokersModel'));
         $broker = new $brokerClass;
 
         $broker->name = $this->argument('name');

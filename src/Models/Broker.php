@@ -1,11 +1,18 @@
 <?php
 
-namespace Zefy\LaravelSSO\Models;
+namespace andcarpi\LaravelSSOServer\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Permission\Traits\HasPermissions;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Sluggable\HasSlug;
+use Spatie\Sluggable\SlugOptions;
 
 class Broker extends Model
 {
+
+    use HasRoles, HasPermissions, HasSlug;
+
     /**
      * Get the table associated with the model.
      *
@@ -13,6 +20,16 @@ class Broker extends Model
      */
     public function getTable()
     {
-        return config('laravel-sso.brokersTable', 'brokers');
+        return config('laravel-sso-server.brokersTable', 'brokers');
+    }
+
+    /**
+     * Get the options for generating the slug.
+     */
+    public function getSlugOptions() : SlugOptions
+    {
+        return SlugOptions::create()
+            ->generateSlugsFrom('name')
+            ->saveSlugsTo('name-slug');
     }
 }

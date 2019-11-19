@@ -1,9 +1,9 @@
 <?php
 
-namespace Zefy\LaravelSSO;
+namespace andcarpi\LaravelSSOServer;
 
 use Illuminate\Support\ServiceProvider;
-use Zefy\LaravelSSO\Commands;
+use andcarpi\LaravelSSOServer\Commands;
 
 class SSOServiceProvider extends ServiceProvider
 {
@@ -12,7 +12,7 @@ class SSOServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $configFileName = 'laravel-sso.php';
+    protected $configFileName = 'laravel-sso-server.php';
 
     /**
      * Bootstrap services.
@@ -43,7 +43,7 @@ class SSOServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->make('Zefy\LaravelSSO\Controllers\ServerController');
+        $this->app->make('andcarpi\LaravelSSOServer\Controllers\ServerController');
     }
 
     /**
@@ -73,9 +73,6 @@ class SSOServiceProvider extends ServiceProvider
      */
     protected function loadRoutes()
     {
-        // If this page is server, load routes which is required for the server.
-        if (config('laravel-sso.type') == 'server') {
-            $this->loadRoutesFrom(__DIR__.'/Routes/server.php');
-        }
+        $this->loadRoutesFrom(__DIR__.'/Routes/server.php');
     }
 }

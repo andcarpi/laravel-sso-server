@@ -1,6 +1,6 @@
 <?php
 
-namespace Zefy\LaravelSSO\Resources;
+namespace andcarpi\LaravelSSOServer\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 
@@ -15,7 +15,7 @@ class UserResource extends Resource
     public function toArray($request)
     {
         $fields = [];
-        foreach (config('laravel-sso.userFields') as $key => $value) {
+        foreach (config('laravel-sso-server.userFields') as $key => $value) {
             $fields[$key] = $this->{$value};
         }
 
