@@ -28,13 +28,13 @@ class LaravelSSOServer
     {
         try {
             if (!$broker) {
-                $this->fail('No broker id specified.', true);
+                $this->fail( __('no-broker-id'), true);
             }
             if (!$token) {
-                $this->fail('No token specified.', true);
+                $this->fail(__('no-token'), true);
             }
             if (!$checksum || $checksum != $this->generateAttachChecksum($broker, $token)) {
-                $this->fail('Invalid checksum.', true);
+                $this->fail( __('invalid-checksum'), true);
             }
             $this->startUserSession();
             $sessionId = $this->generateSessionId($broker, $token);
@@ -264,7 +264,7 @@ class LaravelSSOServer
      */
     protected function authenticate(string $username, string $password)
     {
-        if (!Auth::attempt(['username' => $username, 'password' => $password])) {
+        if (!Auth::attempt([config('laravel-sso-server.userUserNameField') => $username, 'password' => $password])) {
             return false;
         }
 
@@ -305,7 +305,7 @@ class LaravelSSOServer
     protected function getUserInfo(string $username)
     {
         try {
-            $user = config('laravel-sso-server.usersModel')::where('username', $username)->firstOrFail();
+            $user = config('laravel-sso-server.usersModel')::where(config('laravel-sso-server.userUserNameField'), $username)->firstOrFail();
         } catch (ModelNotFoundException $e) {
             return null;
         }

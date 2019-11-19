@@ -15,7 +15,7 @@ class CreateBrokersTable extends Migration
     {
         Schema::create(config('laravel-sso-server.brokersTable', 'brokers'), function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name-slug')->unique();
+            $table->string('name_slug')->unique();
             $table->string('name');
             $table->string('description');
             $table->string('url');

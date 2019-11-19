@@ -30,7 +30,7 @@ return [
     'usersModel' => \App\User::class,
 
     'userTableName' => 'users',
-    'userTableField' => 'email',
+    'userUserNameField' => 'email',
     'userPasswordField' => 'password',
 
     // Logged in user fields sent to brokers.
