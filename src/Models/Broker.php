@@ -11,7 +11,7 @@ use Spatie\Sluggable\SlugOptions;
 class Broker extends Model
 {
 
-    use HasRoles, HasPermissions, HasSlug;
+    use HasRoles, HasSlug;
 
     /**
      * Get the table associated with the model.
