@@ -43,6 +43,8 @@ class CreateBroker extends Command
 
         $broker->name = $this->argument('name');
         $broker->secret = Str::random(40);
+        $broker->description = '';
+        $broker->url = '';
 
         $broker->save();
 

@@ -2,11 +2,13 @@
 
 namespace andcarpi\LaravelSSOServer;
 
+use andcarpi\LaravelSSOServer\Exceptions\SSOServerException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Session;
 use andcarpi\LaravelSSOServer\Resources\UserResource;
+
 
 class LaravelSSOServer
 {
