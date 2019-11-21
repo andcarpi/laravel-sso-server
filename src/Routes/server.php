@@ -10,3 +10,6 @@ Route::middleware(['api', \Illuminate\Session\Middleware\StartSession::class])->
     Route::get('attach', 'andcarpi\LaravelSSOServer\Controllers\ServerController@attach');
     Route::get('userInfo', 'andcarpi\LaravelSSOServer\Controllers\ServerController@userInfo');
 });
+
+Route::get('login', 'andcarpi\LaravelSSOServer\Controllers\LoginController@showLoginForm')->name('login');
+Route::post('login', 'andcarpi\LaravelSSOServer\Controllers\LoginController@login');

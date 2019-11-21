@@ -8,7 +8,16 @@ return [
     |--------------------------------------------------------------------------
     */
 
+    //Do you want to serve the login form on your server?
     'login_on_server' => true,
+
+    //In case of no redirect defined, where we'll redirect him?
+    'no_redirect_defined' => [
+        'mode' => 'url',
+        'destination' => '/home',
+    ],
+
+    //When Serving the login form on your server, what's the login form view?
     'login_view' => 'login',
 
     /*
